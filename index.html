@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<title>SSH Script</title>
+	</head>
+    <body>
+        <button onclick="handleRunScript()">Run Script</button>
+        <script>
+          function handleRunScript() {
+            var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                  // console.log('responseText:' + xmlhttp.responseText);
+                  if (xmlhttp.responseText=="1") {
+                    alert("Success!");
+                  } else {
+                    alert("Failure!");
+                  }
+                }
+            };
+
+            xmlhttp.open("GET", "ssh.php", true);
+            xmlhttp.send();
+          }
+        </script>
+	</body>
+</html>
